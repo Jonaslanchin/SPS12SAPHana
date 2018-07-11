@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="TESTGIT" applyPrivilegeType="ANALYTIC_PRIVILEGE" dataCategory="CUBE" schemaVersion="2.3" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="TESTGIT"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MBEW" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="TRAIN00" columnObjectName="MBEW"/>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="WAERS"/>
+      <viewAttribute id="BWKEY"/>
+      <viewAttribute id="BWTAR"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="PEINH"/>
+      <viewAttribute id="STPRS"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#MBEW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="WAERS" source="WAERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWKEY" source="BWKEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWTAR" source="BWTAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PEINH" source="PEINH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STPRS" source="STPRS"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="WAERS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WAERS"/>
+      <keyMapping columnObjectName="Projection_1" columnName="WAERS"/>
+    </attribute>
+    <attribute id="BWKEY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BWKEY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="BWKEY"/>
+    </attribute>
+    <attribute id="BWTAR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BWTAR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="BWTAR"/>
+    </attribute>
+    <attribute id="MATNR" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MATNR"/>
+    </attribute>
+    <attribute id="PEINH" order="5" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PEINH"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PEINH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="STPRS" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="STPRS"/>
+      <measureMapping columnObjectName="Projection_1" columnName="STPRS"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="73" y="198"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
